@@ -36,6 +36,24 @@ services:
       - "9001:8000"
     restart: unless-stopped
 
+  photolivegenbot:
+    build: .
+    container_name: photolivegenbot
+    env_file: .env
+    environment:
+      API_PORT: 8000
+      API_HOST: 0.0.0.0
+      SSL_CERT_FILE: /certs/selfsigned.crt
+      SSL_KEY_FILE: /certs/selfsigned.key
+    depends_on:
+      - db
+    command: ["bash", "docker/start_api.sh"]
+    volumes:
+      - ./certs:/certs:ro
+    ports:
+      - "9002:8000"
+    restart: unless-stopped
+
 
   nocodb:
     image: nocodb/nocodb:latest
