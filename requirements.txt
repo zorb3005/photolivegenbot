@@ -1,0 +1,12 @@
+aiogram==3.4.1
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+SQLAlchemy==2.0.29
+greenlet==3.0.3
+asyncpg==0.29.0
+alembic==1.12.0
+httpx==0.28.1
+python-dotenv==1.0.1
+aiosqlite==0.20.0
+pytest==7.4.4
+pytest-asyncio==0.23.7
