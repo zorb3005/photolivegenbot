@@ -11,29 +11,13 @@ services:
       - db_data:/var/lib/postgresql/data
     restart: unless-stopped
 
-  live-photo-dev:
+  photolivegenbot-bot:
     build: .
+    container_name: photolivegenbot-bot
     env_file: .env
     depends_on:
       - db
     command: ["python", "-m", "app.bot.runner"]
-    restart: unless-stopped
-
-  live-photo-api:
-    build: .
-    env_file: .env
-    environment:
-      API_PORT: 8000
-      API_HOST: 0.0.0.0
-      SSL_CERT_FILE: /certs/selfsigned.crt
-      SSL_KEY_FILE: /certs/selfsigned.key
-    depends_on:
-      - db
-    command: ["bash", "docker/start_api.sh"]
-    volumes:
-      - ./certs:/certs:ro
-    ports:
-      - "9001:8000"
     restart: unless-stopped
 
   photolivegenbot:
