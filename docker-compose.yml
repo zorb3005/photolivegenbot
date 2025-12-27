@@ -9,6 +9,8 @@ services:
       POSTGRES_DB: motionportrait_bot_v2
     volumes:
       - db_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
     restart: unless-stopped
 
   photolivegenbot-bot:
