@@ -45,7 +45,7 @@ services:
       # NocoDB expects credentials as query params: host:port?u=<user>&p=<pass>&d=<db>
       NC_DB: pg://db:5432?u=postgres&p=postgres&d=motionportrait_bot_v2
     ports:
-      - "8889:8080"
+      - "8890:8080"
     depends_on:
       - db
     restart: unless-stopped
